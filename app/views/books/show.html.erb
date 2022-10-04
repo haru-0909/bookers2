@@ -2,10 +2,29 @@
     <p id="notice"></p>
   <div class="container px-5 px-sm-0">
     <div class="row">
-<%= render 'userinfo', books: @books %>
+<%= render 'userinfo', user: @user %>
 
       <div class="col-md-8 offset-md-1">
        <h2>Book detail</h2>
+           <table class="table">
+               <tbody>
+
+                   <tr>
+                       <td><i class="fa-thin fa-user"></i>
+                       <br><%= @user.name %>
+                       </td>
+                       <td><%= @book.title %></td>
+                       <td><%= @book.body %></td>
+                       <td>
+                         <a class="btn btn-sm btn-success link_to">
+                         <%= link_to "edit" %></a>
+                       </td>
+                       <td>
+                       <%= link_to "Destroy" %>
+                       </td>
+                   </tr>
+               </tbody>
+           </table>
       </div>
     </div>
   </div>
