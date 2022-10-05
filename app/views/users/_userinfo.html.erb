@@ -1,6 +1,10 @@
   <div class="col-md-3">
       <h2>User info</h2>
-      <i class="fa-regular fa-user"></i>
+      <% if user.profile_image.attached? %>
+        <%= image_tag user.profile_image, size: "200x200" %>
+      <% else %>
+        <%= image_tag 'no_image', size: "200x200" %>
+      <% end %>
       <table class="table">
           <tbody>
               <tr></tr>
