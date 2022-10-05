@@ -10,7 +10,7 @@
                <tbody>
 
                    <tr>
-                       <td><i class="fa-thin fa-user"></i>
+                       <td><%= image_tag @book.user.get_profile_image(100,100) %></i>
                        <br><%= @user.name %>
                        </td>
                        <td><%= @book.title %></td>
