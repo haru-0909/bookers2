@@ -15,7 +15,17 @@
           </tr>
         </thead>
         <tbody>
-
+          <tr>
+            <td>
+            <i class="fa-thin fa-user">
+            </td>
+            <td>
+            <%= @user.name %>
+            </td>
+            <td>
+              <%= link_to "show", user_path(@user.id) %>
+            </td>
+          </tr>
         </tbody>
       </table>
     </div>
