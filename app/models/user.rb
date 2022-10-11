@@ -14,4 +14,7 @@ has_one_attached :profile_image
       'no_image.jpg'
      end
     end
+
+    validates :name, uniqueness: true
+  　validates :introduction, presence: true
 end

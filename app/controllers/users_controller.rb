@@ -1,23 +1,34 @@
 class UsersController < ApplicationController
   def index
+      @book = Book.new
       @user = User.all
       @user = current_user
   end
 
 
   def show
+      @book = Book.new
       @user = User.find(params[:id])
       @books = @user.books
   end
 
+  def create
+        @book = Book.new(book_params)
+        @book.user_id = current_user.id
+        @book.save
+        flash[:notice] = "You have created book successfully."
+        redirect_to book_path(@book.id)
+  end
+
   def edit
       @user = current_user
+      redirect_to request.referer
   end
 
   def update
         @user = current_user
         @user.update(user_params)
-        flash[:alert] = "You have updated user successfully."
+        flash[:notice] = "You have updated user successfully."
         redirect_to user_path(@user.id)
   end
 

@@ -1,5 +1,5 @@
 <main>
-    <p id="notice"><%= flash[:alert] %></p>
+    <p id="notice"><%= flash[:notice] %></p>
   <div class="container px-5 px-sm-0">
     <div class="row">
 <%= render 'userinfo', user: @user %>
@@ -8,19 +8,27 @@
        <h2>Book detail</h2>
            <table class="table">
                <tbody>
-
                    <tr>
-                       <td><%= image_tag @book.user %></i>
+                       <td>
+                       <% if @user.profile_image.attached? %>
+                         <%= image_tag @user.profile_image, size: "100x100" %>
+                       <% else %>
+                         <%= image_tag 'no_image', size: "100x100" %>
+                       <% end %>
+                       </i>
                        <br><%= @user.name %>
                        </td>
                        <td><%= @book.title %></td>
                        <td><%= @book.body %></td>
                        <td>
-                         <a class="btn btn-sm btn-success link_to">
+                        <% if @book.user == current_user %>
                          <%= link_to "edit", edit_book_path(@book.id) %></a>
+                        <% end %>
                        </td>
                        <td>
-                       <%= link_to "Destroy", book_path(@book.id), method: :delete, "data-confirm" => "本当に消しますか？" %>
+                        <% if @post_image.user == current_user %>
+                         <%= link_to "Destroy", book_path(@book.id), method: :delete, "data-confirm" => "本当に消しますか？" %>
+                        <% end %>
                        </td>
                    </tr>
                </tbody>
