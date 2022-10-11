@@ -26,8 +26,8 @@
                         <% end %>
                        </td>
                        <td>
-                        <% if @post_image.user == current_user %>
-                         <%= link_to "Destroy", book_path(@book.id), method: :delete, "data-confirm" => "本当に消しますか？" %>
+                        <% if @book.user == current_user %>
+                         <%= link_to "Destroy", books_path, method: :delete, "data-confirm" => "本当に消しますか？" %>
                         <% end %>
                        </td>
                    </tr>
