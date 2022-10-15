@@ -22,7 +22,6 @@ class UsersController < ApplicationController
 
   def edit
       @user = current_user
-      redirect_to request.referer
   end
 
   def update
