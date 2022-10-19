@@ -28,11 +28,15 @@
   		<% end %>
 
   		<span>
-        <%= link_to "show", book_path(@book.id) %>
+        <%= link_to book_path(@book.id) do %>
+        Show
+        <% end %>
       </span>
       |
       <span>
-       <%= link_to "back", '/books' %>
+       <%= link_to books_path do %>
+       Back
+       <% end %>
       </span>
   	</div>
   </div>
